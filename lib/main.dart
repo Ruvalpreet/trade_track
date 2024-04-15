@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trade_track/pages/check_in.dart';
 import 'package:trade_track/pages/home.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/check-in': (context) => const CheckIn(),
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
       home: const HomePage(),

@@ -1,7 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:trade_track/pages/Inventory.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // Method to generate the list of Inventory objects
+  List<Inventory> _generateInventoryList() {
+    final List<Map<String, dynamic>> dataSet = [
+      {
+        'itemName': 'Item 1',
+        'itemDescription': 'Description 1',
+        // 'itemQuantity': 5,
+        // 'itemStatus': true,
+        // 'itemID': 1,
+        // 'itemSize': 'Small',
+        // 'type': 'Type A',
+        // 'checkInDate': DateTime.now(),
+        // 'checkOutDate': DateTime.now(),
+        // 'location': 'Location A',
+      },
+      {
+        'itemName': 'Item 2',
+        'itemDescription': 'Description 2',
+        // 'itemQuantity': 10,
+        // 'itemStatus': false,
+        // 'itemID': 2,
+        // 'itemSize': 'Large',
+        // 'type': 'Type B',
+        // 'checkInDate': DateTime.now(),
+        // 'checkOutDate': DateTime.now(),
+        // 'location': 'Location B',
+      },
+    ];
+    return dataSet.map((data) {
+      return Inventory(
+        itemName: data['itemName'],
+        itemDescription: data['itemDescription'],
+        // itemQuantity: data['itemQuantity'],
+        // itemStatus: data['itemStatus'],
+        // itemID: data['itemID'],
+        // itemSize: data['itemSize'],
+        // type: data['type'],
+        // checkInDate: data['checkInDate'],
+        // checkOutDate: data['checkOutDate'],
+        // location: data['location'],
+      );
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +80,15 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: _generateInventoryList().length,
               itemBuilder: (context, index) {
+                final inventory = _generateInventoryList()[index];
                 return ListTile(
-                  title: Text(
-                    index == 0
-                        ? 'Inventory'
-                        : index == 1
-                            ? 'Check Out'
-                            : index == 2
-                                ? 'Check In'
-                                : 'Orders',
-                  ),
+                  title: Text(inventory.itemName),
+                  subtitle: Text(inventory.itemDescription),
+                  // trailing: Text(inventory.itemQuantity.toString()),
+                  leading: const Icon(Icons.inventory),
+                  onTap: () {},
                 );
               },
             ),
@@ -54,17 +101,18 @@ class HomePage extends StatelessWidget {
   Drawer drawer() {
     return Drawer(
       child: ListView(
-        children: const [
-          ListTile(
+        children: [
+          const ListTile(
             title: Text('Inventory'),
           ),
-          ListTile(
+          const ListTile(
             title: Text('Check Out'),
           ),
           ListTile(
-            title: Text('Check In'),
+            title: const Text('Check In'),
+            onTap: () => Navigator.pushNamed(context, '/check-in'),
           ),
-          ListTile(
+          const ListTile(
             title: Text('Orders'),
           ),
         ],
