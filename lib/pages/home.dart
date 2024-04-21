@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trade_track/pages/Inventory.dart';
+import 'package:trade_track/pages/fetch.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,48 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // Method to generate the list of Inventory objects
-  List<Inventory> _generateInventoryList() {
-    final List<Map<String, dynamic>> dataSet = [
-      {
-        'itemName': 'Item 1',
-        'itemDescription': 'Description 1',
-        // 'itemQuantity': 5,
-        // 'itemStatus': true,
-        // 'itemID': 1,
-        // 'itemSize': 'Small',
-        // 'type': 'Type A',
-        // 'checkInDate': DateTime.now(),
-        // 'checkOutDate': DateTime.now(),
-        // 'location': 'Location A',
-      },
-      {
-        'itemName': 'Item 2',
-        'itemDescription': 'Description 2',
-        // 'itemQuantity': 10,
-        // 'itemStatus': false,
-        // 'itemID': 2,
-        // 'itemSize': 'Large',
-        // 'type': 'Type B',
-        // 'checkInDate': DateTime.now(),
-        // 'checkOutDate': DateTime.now(),
-        // 'location': 'Location B',
-      },
-    ];
-    return dataSet.map((data) {
-      return Inventory(
-        itemName: data['itemName'],
-        itemDescription: data['itemDescription'],
-        // itemQuantity: data['itemQuantity'],
-        // itemStatus: data['itemStatus'],
-        // itemID: data['itemID'],
-        // itemSize: data['itemSize'],
-        // type: data['type'],
-        // checkInDate: data['checkInDate'],
-        // checkOutDate: data['checkOutDate'],
-        // location: data['location'],
-      );
-    }).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,21 +37,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _generateInventoryList().length,
-              itemBuilder: (context, index) {
-                final inventory = _generateInventoryList()[index];
-                return ListTile(
-                  title: Text(inventory.itemName),
-                  subtitle: Text(inventory.itemDescription),
-                  // trailing: Text(inventory.itemQuantity.toString()),
-                  leading: const Icon(Icons.inventory),
-                  onTap: () {},
-                );
-              },
-            ),
-          ),
         ],
       ),
     );
@@ -114,6 +58,14 @@ class _HomePageState extends State<HomePage> {
           ),
           const ListTile(
             title: Text('Orders'),
+          ),
+          ListTile(
+            title: const Text('view orders'),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FetchData(),
+                )),
           ),
         ],
       ),

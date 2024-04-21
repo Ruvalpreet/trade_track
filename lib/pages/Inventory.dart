@@ -1,26 +1,25 @@
 class Inventory {
   late String itemName;
   late String itemDescription;
-  // late int itemQuantity;
-  // late bool itemStatus;
-  // late int itemID;
-  // late String itemSize;
-  // late String type;
-  // late DateTime checkInDate;
-  // late DateTime checkOutDate;
-  // late String location;
+  late int itemQuantity;
+  late bool itemStatus;
+  late int itemID;
+  late String itemSize;
+  late String type;
+  late String checkInDate;
+  late String checkOutDate;
+  late String location;
 
   Inventory({
     required this.itemName,
     required this.itemDescription,
-    // required this.itemQuantity,
-    // required this.itemStatus,
-    // required this.itemID,
-    // required this.itemSize,
-    // required this.type,
-    // required this.checkInDate,
-    // required this.checkOutDate,
-    // required this.location,
+    required this.itemQuantity,
+    required this.itemStatus,
+    required this.itemID,
+    required this.itemSize,
+    required this.type,
+    required this.checkInDate,
+    required this.location,
   });
 
 //   int getQuantity() => itemQuantity;

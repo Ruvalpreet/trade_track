@@ -39,67 +39,67 @@ class _CheckInState extends State<CheckIn> {
             labelText: 'Item Description',
           ),
         ),
-        // TextField(
-        //   controller: itemQuantity,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Item Quantity',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: itemStatus,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Item Status',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: itemID,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Item ID',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: itemSize,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Item Size',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: type,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Type',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: checkInDate,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Check In Date',
-        //   ),
-        // ),
-        // TextField(
-        //   controller: location,
-        //   decoration: const InputDecoration(
-        //     border: OutlineInputBorder(),
-        //     labelText: 'Location',
-        //   ),
-        // ),
+        TextField(
+          controller: itemQuantity,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Item Quantity',
+          ),
+        ),
+        TextField(
+          controller: itemStatus,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Item Status',
+          ),
+        ),
+        TextField(
+          controller: itemID,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Item ID',
+          ),
+        ),
+        TextField(
+          controller: itemSize,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Item Size',
+          ),
+        ),
+        TextField(
+          controller: type,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Type',
+          ),
+        ),
+        TextField(
+          controller: checkInDate,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Check In Date',
+          ),
+        ),
+        TextField(
+          controller: location,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Location',
+          ),
+        ),
         ElevatedButton(
             onPressed: () {
               var data = {
                 'name': itemName.text,
                 'description': itemDescription.text,
-                // 'quantity': itemQuantity.text,
-                // 'status': itemStatus.text,
-                // 'id': itemID.text,
-                // 'size': itemSize.text,
-                // 'type': type.text,
-                // 'checkInDate': checkInDate.text,
-                // 'location': location.text
+                'quantity': itemQuantity.text,
+                'status': itemStatus.text,
+                'id': itemID.text,
+                'size': itemSize.text,
+                'type': type.text,
+                'checkInDate': checkInDate.text,
+                'location': location.text
               };
               Api.addProduct(data);
             },
